@@ -9,14 +9,47 @@ public class AboutMe {
     public static void main(String[] args) {
         Date date = new Date();
         System.out.println(date);
+        String nome = "";
+        String sobrenome = "";
+        boolean preencheuNome = false;
 
         try {
             Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
+            System.out.println(scanner);
 
+
+
+            while (true) {
             System.out.println("Digite seu nome: ");
-            String nome = scanner.next();
+            nome = scanner.next();
+
+            boolean contemNumeros = nome.matches("[a-zA-Z]+");
+            System.out.println(contemNumeros);
+
+            //ou == para comparar
+            if (contemNumeros){
+                break;
+            }else {
+                System.err.println("Utilize apenas caracteres ");
+                nome = "";
+                //reseta os valores
+                scanner.reset();
+            }
+        }
+        while (true) {
+            Scanner niu = new Scanner(System.in);
             System.out.println("Digite seu sobrenome: ");
-            String sobrenome = scanner.next();
+            sobrenome = niu.next();
+            boolean contemNumeros = nome.matches("[a-zA-Z]+");
+            if (contemNumeros){
+                break;
+            }
+            System.out.println("Utilize apenas caracteres ");
+            sobrenome = "";
+            niu.reset();
+
+        }
+
             System.out.println("Digite sua idade: ");
             int idade = scanner.nextInt();
             System.out.println("Dgite sua altura: ");
@@ -27,9 +60,11 @@ public class AboutMe {
             System.out.println("Minha altura é " + altura + "cm ");
             scanner.close();
         }catch (InputMismatchException ex) {
-            //faca sua logica aqui
+            //faça sua lógica aqui
+            System.err.println("Ultilize um valor válido");
         }catch (Exception ex) {
-            //faca sua logica
+            //faca sua logica aqui
+
         }
     }
 }
