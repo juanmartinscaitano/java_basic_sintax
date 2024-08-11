@@ -17,8 +17,6 @@ public class AboutMe {
             Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
             System.out.println(scanner);
 
-
-
             while (true) {
             System.out.println("Digite seu nome: ");
             nome = scanner.next();
@@ -29,27 +27,29 @@ public class AboutMe {
             //ou == para comparar
             if (contemNumeros){
                 break;
-            }else {
+            }
                 System.err.println("Utilize apenas caracteres ");
-                nome = "";
+                // nome = "";
                 //reseta os valores
                 scanner.reset();
-            }
         }
-        while (true) {
-            Scanner niu = new Scanner(System.in);
+            Scanner sobreNome = new Scanner(System.in);
+            System.out.println(sobreNome);
+
+            while (true) {
             System.out.println("Digite seu sobrenome: ");
-            sobrenome = niu.next();
-            boolean contemNumeros = nome.matches("[a-zA-Z]+");
-            if (contemNumeros){
+            sobrenome = sobreNome.next();
+
+            boolean temNumeros = sobrenome.matches("[a-zA-Z ]+");
+            System.out.println(temNumeros);
+
+            if (temNumeros){
                 break;
             }
-            System.out.println("Utilize apenas caracteres ");
-            sobrenome = "";
-            niu.reset();
+                System.err.println("Utilize apenas caracteres ");
+                sobreNome.reset();
 
-        }
-
+            }
             System.out.println("Digite sua idade: ");
             int idade = scanner.nextInt();
             System.out.println("Dgite sua altura: ");
@@ -62,6 +62,10 @@ public class AboutMe {
         }catch (InputMismatchException ex) {
             //faça sua lógica aqui
             System.err.println("Ultilize um valor válido");
+            //fazer o scanner numIdade e numAltura receberem apenas parametros igual a vida real
+            Scanner numIdade = new Scanner(System.in);
+            Scanner numAltura = new Scanner(System.in);
+
         }catch (Exception ex) {
             //faca sua logica aqui
 
