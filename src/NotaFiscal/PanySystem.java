@@ -8,6 +8,7 @@ public class PanySystem {
 
         System.out.println(cupomGerado);
 
+
         ImpressorCupom impressorCupom = new ImpressorCupom();
         impressorCupom.imprimir(cupomGerado);
     }
