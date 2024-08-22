@@ -14,18 +14,22 @@ public class ImpressorCupom {
         E APLIQUE O RESPECTIVO ALINHAMENTO
          */
         StringBuilder conteudo = new StringBuilder();
+        conteudo.append(String.format("%-50s\n", cupom.nomeFantasia));
         conteudo.append(tracos());
-        conteudo.append(cupom.nomeFantasia + "\n");
+      //  conteudo.append(cupom.nomeFantasia + "\n");
         Endereco end = cupom.endereco;
-        conteudo.append(end.logradoro + "N. " + end.numero + " " + end.complemento);
-        conteudo.append("CPF/CNPJ:" + cupom.cpf + " " + cupom.data + "\n");
-        conteudo.append("IE:" + cupom.ie + " " + cupom.hora + "\n");
-        conteudo.append("IM:" + cupom.im + " " + "CCF" + cupom.ccf + "\n");
-        conteudo.append("CDD:" + cupom.cdd + "\n");
+        conteudo.append(String.format("%sN. %s %sCPF/CNPJ:%s %s\n",
+                end.logradoro, end.numero, end.complemento, cupom.cpf, cupom.data));
+        conteudo.append(String.format("IE:%s %s\nIM:%s CFF%s\nCDD:%s\n",
+                cupom.ie, cupom.hora, cupom.im, cupom.ccf, cupom.cdd));
+        //terminado a concatenacao de forma reduzida ultilizando String.format
+
         conteudo.append(tracos());
         conteudo.append("CUPOM FISCAL\n");
         //esperado que facam
+
         conteudo.append(String.format("ITEM COD. %-30s%10s\n", "DESCRIÇÂO", "VALOR"));
+        //conteudo.append(String.format("%d ));
 
         for (CupomItem item : cupom.itens) {
             conteudo.append("DESCRICAO DE ACORDO COM CADA ITEM EXISTENTE\n");
