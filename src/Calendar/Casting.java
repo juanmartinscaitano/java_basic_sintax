@@ -15,7 +15,5 @@ public class Casting {
         String num = String.valueOf(idade3);
 
          int idade4 = Integer.parseInt(num);
-
-        System.err.println(sexoM);
     }
 }
