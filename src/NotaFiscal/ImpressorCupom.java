@@ -20,6 +20,7 @@ public class ImpressorCupom {
         Endereco end = cupom.endereco;
         conteudo.append(String.format("%sN. %s %sCPF/CNPJ:%s %s\n",
                 end.logradoro, end.numero, end.complemento, cupom.cpf, cupom.data));
+
         conteudo.append(String.format("IE:%s %s\nIM:%s CFF%s\nCDD:%s\n",
                 cupom.ie, cupom.hora, cupom.im, cupom.ccf, cupom.cdd));
         //terminado a concatenacao de forma reduzida ultilizando String.format
@@ -31,8 +32,9 @@ public class ImpressorCupom {
         conteudo.append(String.format("ITEM COD. %-30s%10s\n", "DESCRIÇÂO", "VALOR"));
         //conteudo.append(String.format("%d ));
 
+        CupomItem item01;
         for (CupomItem item : cupom.itens) {
-            conteudo.append("DESCRICAO DE ACORDO COM CADA ITEM EXISTENTE\n");
+            conteudo.append("%s\n");
         }
         conteudo.append(tracos());
         System.out.println(conteudo.toString());
