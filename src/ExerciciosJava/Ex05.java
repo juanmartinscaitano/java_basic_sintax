@@ -8,23 +8,22 @@ public class Ex05 {
         Scanner login = new Scanner(System.in);
 
         String nomeValue = "Juan";
-        String cpfValue = "012345678901";
+        String cpfSenhaValue = "01234567890";
 
-        System.out.println("Digite seu nome: ");
-        String nome = login.next();
+        System.out.println("Digite seu nome de login: ");
+        String nome = login.nextLine();
 
-        System.out.println("Digite sua cpf: ");
-        String cpf = login.next();
+        System.out.println("Digite sua senha(cpf): ");
+        String cpfSenha = login.nextLine();
 
-        if (nome.equals(nomeValue) && cpf.equals(cpfValue)) {
-            System.out.println("Entrando");
+        // se o valor for numeral pode se ultilizar ==
+        // mas quando é string ultiliza-se o nome da varivel.equal(variavel para ser comparada);
 
-//
-
+        if (nome.equals(nomeValue) && cpfSenha.equals(cpfSenhaValue)) {
+            System.out.println("Entrando...");
+            login.close();
         } else
-            System.out.println("Nome ou cpf inválidos");
-
+            System.err.println("Nome ou/e cpf inválidos");
     }
-
 
 }
